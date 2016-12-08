@@ -1,0 +1,91 @@
+/* CSS declarations go here */
+
+body {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+li {
+    margin: 1px;
+    padding: 5px;
+}
+
+li.bg-red, li.bg-green {
+    color: white;
+}
+
+hr {
+    margin: 0px;
+}
+
+button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: white;
+    border: none;
+    height: 2em;
+    width: 2em;
+    margin: 2px;
+    background-color: black;
+    border-radius: 100px;
+    outline: none;
+}
+
+header {
+    position: relative;
+}
+
+input {
+    border-radius: 0;
+    appearance: none;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border 0.3s;
+}
+
+input:focus {
+    appearance: none;
+    box-shadow: none;
+    border: none;
+    border-bottom: solid 2px #969696;
+    outline: none;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.flexbox {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.bg-red {
+    background: red;
+}
+
+.bg-green {
+    background: green;
+}
+
+#brosnan {
+    content: url('brosnan.png');
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+#item-input {
+    display: none;
+    width: 0%;
+}

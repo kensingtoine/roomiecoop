@@ -1,0 +1,88 @@
+<head>
+  <title>Roomiecoop</title>
+</head>
+
+<body>
+  <header>
+    <h1>Brosnan in da house!</h1>
+    <img id="brosnan">
+    {{#if currentUser}}
+      {{> addItem}}
+    {{else}}
+      {{> login}}
+    {{/if}}
+    <hr>
+  </header>
+
+  {{#if currentUser}}
+    <h2>We like to have:</h2>
+    {{> itemList}}
+    {{> missingItemList}}
+  {{/if}}
+</body>
+
+<template name="addItem">
+  <div class="flexbox">
+    <button id="add-item">&#10010;</button>
+    <form id="item-form" class="inline">
+      <input id="item-input" placeholder="Item" type="text" name="item-name">
+    </form>
+  </div>
+</template>
+
+<template name="itemList">
+  {{#if items.count}}
+    <ul>
+      {{#each items}}
+        {{> item}}
+      {{/each}}
+    </ul>
+  {{else}}
+    The item list is empty.
+  {{/if}}  
+</template>
+
+<template name="item">
+  {{#if missing}}
+    <li class="bg-red">
+      <button id="removeFromList">&#10008;</button>
+      <span>{{itemName}}</span>
+    </li>
+  {{else}}
+    <li class="bg-green">
+      <button id="removeFromList">&#10008;</button>
+      <button id="markMissing">&#9755;</button>
+      <span>{{itemName}}</span>
+    </li>
+  {{/if}}
+</template>
+
+<template name="missingItemList">
+  <hr>
+  {{#if missingItems.count}}
+    {{user.username}}, it's your turn to buy the following, which we miss dearly:
+    <ul>
+      {{#each missingItems}}
+        {{> missingItem}}
+      {{/each}}
+    </ul>
+    Does this seem incorrect? Tell the admin you're shaken (not stirred)!
+  {{else}}
+    Aye, aye, we're golden, aye! No items missing that you're supposed to buy.
+  {{/if}}
+</template>
+
+<template name="missingItem">
+  <li>
+    <button id="markBought">&#10004;</button>
+    <span>{{itemName}}</span>
+  </li>
+</template>
+
+<template name="login">
+    <form>
+        <input type="username" name="loginUsername">
+        <input type="password" name="loginPassword">
+        <input type="submit" value="Login">
+    </form>
+</template>
